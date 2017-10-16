@@ -19,7 +19,7 @@ const puppeteer = require('puppeteer');
     console.log('reset viewport')
 
     await page.focus('#kw')
-    await page.keyboard.sendCharacter('狗')
+    await page.keyboard.sendCharacter('guns n roses')
     await page.click('.s_btn')
     console.log('go to search list')
 
