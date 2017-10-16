@@ -1,4 +1,7 @@
 screenshot/*.png
+mn/*.png
+mn/*.jpg
+mn/*.gif
 
 #logs
 logs
