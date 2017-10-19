@@ -6,8 +6,13 @@ const path = require('path')
 const { promisify } = require('util')
 const writeFile = promisify(fs.writeFile)
 
-module.exports = (src, dir) => {
-    console.log('-----' + src)
+module.exports = async(src, dir) => {
+    console.log('-----' + src + '-----')
+    if (/\.(jpg|png|gif)$/.test(src)) {
+        await urlToimg(src, dir)
+    } else {
+        await base64Toimg(src, dir)
+    }
 }
 
 //url=>image

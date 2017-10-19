@@ -3,6 +3,7 @@ const srcToimg = require('./helper/srcToimg')
 const puppeteer = require('puppeteer');
 
 (async() => {
+    //关闭headless，可视
     const browser = await puppeteer.launch({ headless: false })
     const page = await browser.newPage()
     await page.goto('https://image.baidu.com/')
@@ -20,7 +21,7 @@ const puppeteer = require('puppeteer');
 
     await page.focus('#kw')
     console.log('focus')
-    await page.keyboard.sendCharacter('node js')
+    await page.keyboard.sendCharacter('程序员')
     console.log('keyboard')
     await page.click('.s_btn')
     console.log('go to search list')
@@ -35,6 +36,7 @@ const puppeteer = require('puppeteer');
         console.log(`get ${srcs.length} images,start download`)
 
         srcs.forEach(async(src) => {
+            await page.waitFor(200) //sleep
             await srcToimg(src, mn)
         })
 
