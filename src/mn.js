@@ -19,13 +19,14 @@ const puppeteer = require('puppeteer');
     console.log('reset viewport')
 
     await page.focus('#kw')
-    await page.keyboard.sendCharacter('guns n roses')
+    console.log('focus')
+    await page.keyboard.sendCharacter('node js')
+    console.log('keyboard')
     await page.click('.s_btn')
     console.log('go to search list')
 
     page.on('load', async() => {
         console.log('page loading done ,start fetch...')
-
         const srcs = await page.evaluate(() => {
             const images = document.querySelectorAll('img.main_img')
                 //将抓取的图片转换成数组图片地址

@@ -11,7 +11,7 @@ module.exports = (src, dir) => {
 }
 
 //url=>image
-const urlToimg = promisify((url, dir) => {
+const urlToimg = promisify((url, dir, callback) => {
     const mod = /^https:/.test(url) ? https : http
     const ext = path.extname(url) //拓展名
     const file = path.join(dir, `${Date.now()}${ext}`)
